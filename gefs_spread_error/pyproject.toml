@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gefs-temperature-spread-error"
+version = "0.1.0"
+description = "GEFS 2-m temperature ensemble spread-error verification project"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Youkyoung Jang" }
+]
+license = { text = "MIT" }
+
+keywords = [
+    "GEFS",
+    "ensemble forecasting",
+    "weather verification",
+    "spread-error relationship",
+    "2-m temperature",
+    "NOAA",
+    "xarray",
+    "GRIB2"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "xarray",
+    "matplotlib",
+    "s3fs",
+    "fsspec",
+    "cfgrib",
+    "eccodes",
+]
+
+[project.optional-dependencies]
+notebook = [
+    "jupyter",
+    "ipykernel",
+    "cartopy",
+]
+
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+]
+
+[tool.setuptools]
+packages = ["gefs_spread_error"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88

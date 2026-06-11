@@ -35,6 +35,7 @@ This workflow is relevant to operational forecast verification, ensemble model e
 
 
 ## Repository Structure
+```text
 gefs-temperature-spread-error/
 ├── README.md
 ├── pyproject.toml
@@ -48,6 +49,8 @@ gefs-temperature-spread-error/
 │   ├── verification.py
 │   └── plotting.py
 └── figures/
+```
+
 
 ## AI Use Disclosure
 AI assistance was used to help draft and organize portions of the Python workflow and documentation. Scientific choices, code review, testing, and final project decisions were performed by the author.

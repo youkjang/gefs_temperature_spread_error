@@ -121,6 +121,8 @@ def load_gefs_member_t2m(
     config,
     member: str,
     fhr: int,
+    init_date: str | None = None,
+    init_hour: str | None = None,
     cache_dir: str = "data/gefs",
 ) -> xr.DataArray:
     """
@@ -158,6 +160,8 @@ def load_gefs_member_t2m(
 def load_gfs_analysis_t2m(
     config,
     fhr: int,
+    init_date: str | None = None,
+    init_hour: str | None = None,
     cache_dir: str = "data/gfs",
 ) -> xr.DataArray:
     """

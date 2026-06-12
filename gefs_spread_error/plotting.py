@@ -75,3 +75,121 @@ def plot_spread_error_scatter(results_by_fhr, output_path=None):
         fig.savefig(output_path, dpi=150, bbox_inches="tight")
 
     return fig, ax
+
+#New 6/12/26
+def plot_mean_spread_rmse_by_lead(summary_by_lead, output_path=None):
+    """
+    Plot multi-date mean spread and RMSE by forecast lead time.
+
+    Required columns:
+    forecast_hour, spread_mean, rmse
+    """
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    ax.plot(
+        summary_by_lead["forecast_hour"],
+        summary_by_lead["spread_mean"],
+        marker="o",
+        label="Mean ensemble spread",
+    )
+
+    ax.plot(
+        summary_by_lead["forecast_hour"],
+        summary_by_lead["rmse"],
+        marker="o",
+        label="Mean RMSE",
+    )
+
+    ax.set_xlabel("Forecast lead time (hours)")
+    ax.set_ylabel("Temperature difference (K)")
+    ax.set_title("Multi-Date Mean GEFS Spread and RMSE")
+    ax.grid(True, alpha=0.3)
+    ax.legend()
+
+    if output_path is not None:
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(output_path, dpi=150, bbox_inches="tight")
+
+    return fig, ax
+
+
+#New 6/12/26
+def plot_spread_skill_ratio_by_lead(summary_by_lead, output_path=None):
+    """
+    Plot mean spread-skill ratio by forecast lead time.
+
+    Required columns:
+    forecast_hour, spread_skill_ratio
+    """
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    ax.plot(
+        summary_by_lead["forecast_hour"],
+        summary_by_lead["spread_skill_ratio"],
+        marker="o",
+        label="Spread-skill ratio",
+    )
+
+    ax.axhline(
+        1.0,
+        linestyle="--",
+        linewidth=1,
+        label="Reference = 1",
+    )
+
+    ax.set_xlabel("Forecast lead time (hours)")
+    ax.set_ylabel("Spread / RMSE")
+    ax.set_title("GEFS Spread-Skill Ratio by Forecast Lead Time")
+    ax.grid(True, alpha=0.3)
+    ax.legend()
+
+    if output_path is not None:
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(output_path, dpi=150, bbox_inches="tight")
+
+    return fig, ax
+
+#New 6/12/26
+def plot_spread_skill_boxplot(results_df, output_path=None):
+    """
+    Boxplot of spread-skill ratio by forecast lead time.
+
+    Required columns:
+    forecast_hour, spread_skill_ratio
+    """
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    forecast_hours = sorted(results_df["forecast_hour"].unique())
+
+    data = [
+        results_df.loc[
+            results_df["forecast_hour"] == fhr,
+            "spread_skill_ratio",
+        ].dropna()
+        for fhr in forecast_hours
+    ]
+
+    ax.boxplot(
+        data,
+        labels=[str(fhr) for fhr in forecast_hours],
+    )
+
+    ax.axhline(
+        1.0,
+        linestyle="--",
+        linewidth=1,
+    )
+
+    ax.set_xlabel("Forecast lead time (hours)")
+    ax.set_ylabel("Spread / RMSE")
+    ax.set_title("Spread-Skill Ratio Distribution by Lead Time")
+    ax.grid(True, alpha=0.3)
+
+    if output_path is not None:
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(output_path, dpi=150, bbox_inches="tight")
+
+    return fig, ax

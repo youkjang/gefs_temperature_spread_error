@@ -4,7 +4,7 @@
 Configuration for the GEFS temperature spread-error project.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 

@@ -14,6 +14,17 @@ class ProjectConfig:
     init_date: str = "20240115"   # YYYYMMDD
     init_hour: str = "00"         # HH
 
+    # NEW: multiple initialization dates
+    init_dates: List[str] = field(
+        default_factory=lambda: [
+            "20240105",
+            "20240110",
+            "20240115",
+            "20240120",
+            "20240125",
+        ]
+    )
+
     # Forecast lead times to verify
     forecast_hours: List[int] = None
 

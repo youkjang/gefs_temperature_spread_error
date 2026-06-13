@@ -129,8 +129,11 @@ def load_gefs_member_t2m(
     Download and open one GEFS member 2-m temperature forecast.
     """
     s3_path = gefs_s3_path(
-        config.init_date,
-        config.init_hour,
+# replaced with init_date,init_hour for multi Initial dates
+#        config.init_date,
+#        config.init_hour,
+        init_date,
+        init_hour
         member,
         fhr,
     )

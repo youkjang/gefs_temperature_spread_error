@@ -140,8 +140,11 @@ def load_gefs_member_t2m(
 
     local_file = (
         Path(cache_dir)
-        / config.init_date
-        / config.init_hour
+# replaced with init_date,init_hour for multi Initial dates
+#      / config.init_date,
+#      /  config.init_hour,
+        / init_date
+        / init_hour
         / f"{member}_f{fhr:03d}.grib2"
     )
 

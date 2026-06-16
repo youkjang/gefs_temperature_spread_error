@@ -173,7 +173,11 @@ def load_gfs_analysis_t2m(
     """
     Download and open GFS analysis 2-m temperature valid at GEFS forecast time.
     """
-    vdt = valid_datetime(config.init_date, config.init_hour, fhr)
+
+# replaced with init_date,init_hour for multi Initial dates
+    
+    #vdt = valid_datetime(config.init_date, config.init_hour, fhr)
+    vdt = valid_datetime(init_date, init_hour, fhr)
 
     valid_date = vdt.strftime("%Y%m%d")
     valid_hour = vdt.strftime("%H")

@@ -29,7 +29,8 @@ def plot_spread_rmse_by_lead(results_df, output_path=None):
     )
 
     ax.set_xlabel("Forecast lead time (hours)")
-    ax.set_ylabel("Temperature (K)")
+    #ax.set_ylabel("Temperature (K)")
+    ax.set_ylabel("Spread / RMSE (K)")
     ax.set_title("GEFS 2-m Temperature Spread and RMSE by Lead Time")
     ax.grid(True, alpha=0.3)
     ax.legend()
@@ -101,7 +102,8 @@ def plot_mean_spread_rmse_by_lead(summary_by_lead, output_path=None):
     )
 
     ax.set_xlabel("Forecast lead time (hours)")
-    ax.set_ylabel("Temperature difference (K)")
+    #ax.set_ylabel("Temperature difference (K)")
+    ax.set_ylabel("Spread / RMSE (K)")
     ax.set_title("Multi-Date Mean GEFS Spread and RMSE")
     ax.grid(True, alpha=0.3)
     ax.legend()

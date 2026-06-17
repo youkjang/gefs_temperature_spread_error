@@ -4,7 +4,7 @@ This project evaluates the relationship between **GEFS ensemble spread** and **f
 
 ## Project Questions
 1. For a single forecast initialization, does the GEFS ensemble spread increase consistently with forecast error as lead time increases?
-2. Across multiple initialization dates, is the GEFS ensemble spread statistically consistent with the realized forecast error?
+2. Across multiple initialization dates, is the GEFS ensemble spread statistically consistent with the forecast error?
 
 ## Project Motivation
 

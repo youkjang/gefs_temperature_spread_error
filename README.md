@@ -41,7 +41,8 @@ gefs-temperature-spread-error/
 ├── pyproject.toml
 ├── setup.py
 ├── notebooks/
-│   └── 01_gefs_temperature_spread_error.ipynb
+│   └── 01_single_gefs_temperature_spread_error.ipynb
+│   └── 02_multidate_spread_skill_ratio.ipynb
 ├── gefs_spread_error/
 │   ├── __init__.py
 │   ├── config.py

@@ -2,7 +2,9 @@
 
 This project evaluates the relationship between **GEFS ensemble spread** and **forecast error** for 2-meter temperature over the contiguous United States (CONUS).
 
-The main goal is to examine whether a larger ensemble spread corresponds to a larger forecast error as the forecast lead time increases.
+## Project Questions
+1. For a single forecast initialization, does the GEFS ensemble spread increase consistently with forecast error as lead time increases?
+2. Across multiple initialization dates, is the GEFS ensemble spread statistically consistent with the realized forecast error?
 
 ## Project Motivation
 
